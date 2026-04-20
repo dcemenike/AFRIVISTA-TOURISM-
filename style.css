@@ -1,0 +1,1258 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.section-one {
+
+    background: url(media/girraffe\ image.png);
+
+    background-size: cover;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    min-height: 100vh;
+
+}
+
+
+
+.custom-navbar {
+
+    background: #724E33;
+
+    font-family: 'Playfair Display', serif;
+
+    backdrop-filter: blur(10px);
+
+    margin: 20px auto;
+
+    opacity: 0.5;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    border-radius: 50px;
+
+    padding: 10px 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.nav-link {
+
+    color: white !important;
+
+    font-size: 0.95rem;
+
+    margin: 0 10px;
+
+}
+
+
+
+.btn-contact {
+
+    background-color: #a76c34 !important;
+
+    color: white !important;
+
+    border-radius: 30px;
+
+    padding: 8px 20px;
+
+    font-size: 0.9rem;
+
+    border: none;
+
+    border-radius: 20px !important;
+
+}
+
+
+
+.btn-contact:hover {
+
+    transform: translateX(-10px)
+
+}
+
+
+
+.btn-contact:hover .arrow-icon {
+
+    transform: rotate(-40deg);
+
+}
+
+
+
+.giraffe-text {
+
+    margin: 200px 0 0 6%;
+
+    width: 45vw;
+
+    font-family: 'Playfair Display', serif;
+
+    color: white;
+
+}
+
+
+
+.giraffe-text p {
+
+    width: 35vw;
+
+    font-size: 1.1rem;
+
+    line-height: 20px;
+
+    font-weight: lighter;
+
+    color: rgb(241, 229, 229);
+
+}
+
+
+
+.giraffe-text h1 {
+
+    font-size: 3rem;
+
+    font-weight: 600;
+
+}
+
+
+
+.section2-container {
+
+    background-color: #e4d1c0;
+
+    align-items: center;
+
+    min-height: 100vh;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-family: 'Playfair Display', serif;
+
+    padding: 0 4%;
+
+
+
+}
+
+
+
+.hiking {
+
+    width: 100%;
+
+    padding-top: 4%;
+
+    object-fit: cover;
+
+    padding-bottom: 4%;
+
+}
+
+
+
+.section2 {
+
+    max-width: 40rem;
+
+}
+
+
+
+.section2 h2 {
+
+    color: #a76c34;
+
+    font-size: 2.5rem;
+
+}
+
+
+
+.section2 h4 {
+
+    color: black;
+
+    font-size: 1.5rem;
+
+    padding-left: 4%;
+
+}
+
+
+
+.section2 p {
+
+    color: black;
+
+    font-size: 1.12rem;
+
+    letter-spacing: -0.7px;
+
+}
+
+
+
+.section3-container {
+
+    background: linear-gradient(rgba(0, 0, 0, 0.7)), url(media/egyptian\ wall\ bg.jpg);
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+    min-height: 80vh;
+
+    font-family: 'Playfair Display', serif;
+
+    color: white;
+
+    text-align: center;
+
+    padding-bottom: 50px;
+
+}
+
+
+
+.section3-container h2 {
+
+    font-size: 2.3rem;
+
+    padding-top: 7%;
+
+    font-weight: normal;
+
+}
+
+
+
+.card-parent {
+
+    display: flex;
+
+    justify-content: space-around;
+
+    flex-wrap: wrap;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+}
+
+
+
+.cardd {
+
+    align-items: center;
+
+    background-color: #402b11d3;
+
+    width: 17vw;
+
+    height: 30vh;
+
+    text-align: center;
+
+    padding: 20px 20px;
+
+    border-radius: 15px;
+
+}
+
+
+
+.icon {
+
+    border-radius: 50%;
+
+    background-color: #a76c34;
+
+    width: 50px;
+
+    height: 50px;
+
+    padding: 10px;
+
+    margin: auto;
+
+}
+
+
+
+.cardd h4 {
+
+    font-size: 1.4rem;
+
+    margin: 10px 0;
+
+}
+
+
+
+.cardd p {
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* SECTION 4 */
+
+
+
+.section4-container {
+
+    background-color: #e4d1c0;
+    padding-bottom: 50px;
+
+}
+
+
+
+.container4 {
+
+    min-height: 100vh;
+
+    margin: auto 4%;
+
+    text-align: center;
+
+}
+
+
+
+.container4 h2 {
+
+    font-family: 'Playfair Display', serif;
+
+    color: #a76c34;
+
+    font-size: 2.5rem;
+
+    padding-top: 5%;
+
+    font-weight: 530;
+
+}
+
+
+
+.container4 ul li {
+
+    display: inline-block;
+
+    border: 2px solid #a76c34;
+
+    color: #a76c34;
+
+    padding: 10px 20px;
+
+    margin: 20px 20px;
+
+    border-radius: 30px;
+
+    width: 150px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+
+
+.brownbg {
+
+    background-color: #a76c34;
+
+    color: white !important;
+
+    cursor: default !important;
+
+}
+
+
+
+.bootstrap-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    /* flex-wrap: wrap; */
+
+    margin: 20px;
+
+    gap: 20px;
+
+}
+
+
+
+#cards {
+
+    max-height: 400px;
+
+    color: black;
+
+    font-family: 'Playfair Display', serif;
+
+    border-radius: 20px;
+
+}
+
+
+
+#card-body {
+
+    text-align: start;
+
+}
+
+
+
+#img-top {
+
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+}
+
+
+
+/*                  SECTION FIVE */
+
+
+
+
+
+.section5-container {
+
+    background-color: #e4d1c0;
+
+    font-family: 'Playfair Display', serif;
+
+    padding-bottom: 50px;
+    
+    min-height: 100vh;
+
+}
+
+
+
+.section5-container h2 {
+
+    color: #a76c34;
+
+    font-size: 2.9rem;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+
+.gallery-wrapper {
+
+    background-color: #e4d1c0;
+
+    padding: 3% 2%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding-bottom: 100px;
+
+}
+
+
+
+.gallery-div1 {
+
+    height: 105vh;
+
+    width: 38vw;
+
+}
+
+
+
+.gallery-div2 {
+
+    height: 105vh;
+
+    width: 29vw;
+
+    background-image: url(media/Zuma\ Rock.jpg);
+
+    background-size: cover;
+
+    background-position: center;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+}
+
+
+
+.gallery-div3 {
+
+    height: 105vh;
+
+    width: 29vw;
+
+}
+
+
+
+.grid1 {
+
+    height: 50vh;
+
+    max-width: 50vw;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+
+.grid1 img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+}
+
+
+
+.fount {
+
+    max-width: 29vw;
+
+    height: 50vh;
+
+}
+
+
+
+.girr {
+
+    max-width: 21vw;
+
+    height: 50vh;
+
+}
+
+
+
+/* COLLAGE */
+
+.collage-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin-top: 20px;
+
+
+}
+
+
+
+.collage {
+
+    background-size: cover;
+
+    background-position: center;
+
+    border-radius: 30px;
+
+    min-height: 150px;
+
+}
+
+
+
+.tall {
+
+    grid-row: span 2;
+
+    background-image: url(media/long\ image.jpg);
+
+}
+
+
+
+.pharaoh {
+
+    background-image: url(media/pharaoh\ head.jpg);
+
+}
+
+
+
+.waterfall {
+
+    background-image: url(media/waterfall.png);
+
+}
+
+
+
+.archeology {
+
+    background-image: url(media/archeology.jpg);
+
+}
+
+
+
+.horses {
+
+    background-image: url(media/horses.jpg);
+
+}
+
+
+
+.item {
+
+    border-radius: 20px;
+
+}
+
+
+
+.gallery3-div {
+
+    height: 50vh;
+
+    max-width: 50vw;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+
+.pyra {
+
+    background-image: url(media/PYRAMIDS.jpg);
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+}
+
+
+
+.obudu {
+
+    background-image: url(media/obudu.jpg);
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+}
+
+
+
+.statute {
+
+    background-image: url(media/2bootcard.jpg);
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+}
+
+
+
+.morro {
+
+    background-image: url(media/morocco.jpg);
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+}
+
+
+
+.zebra {
+
+    margin-top: 20px;
+
+    height: 50vh;
+
+    width: auto;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url(media/zebra.jpg);
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+}
+
+
+
+.zebra p {
+
+    color: rgb(255, 255, 255);
+
+    font-size: 4rem;
+
+}
+
+
+
+/* SECTION SIX */
+
+.section6-div {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(media/landscape\ bg.jpg);
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+    background-repeat: no-repeat;
+
+    min-height: 70vh;
+
+    width: 100%;
+    
+    padding-bottom: 50px;
+
+}
+
+
+
+.section6-div-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    row-gap: 30px;
+
+    align-items: center;
+
+    max-width: 40vw;
+
+    margin: auto;
+
+    padding-top: 5%;
+
+    color: white;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.7rem;
+
+}
+
+
+
+.section6-div-text h2 {
+
+    font-size: 3rem;
+
+}
+
+
+
+.section6-div-text img {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 120px;
+
+    object-fit: cover;
+
+}
+
+
+
+.ratings {
+
+    text-align: center;
+
+    margin-top: 2%;
+
+    align-items: baseline;
+
+    justify-content: baseline;
+
+
+
+}
+
+
+
+.ratings span {
+
+    font-size: 1.5rem;
+
+    color: white;
+
+    font-family: 'Playfair Display', serif;
+
+
+
+}
+
+
+
+/* SECTION SEVEN */
+
+
+
+.section7-container {
+
+    background-color: #e4d1c0;
+
+    font-family: 'Playfair Display', serif;
+
+    height: 100vh;
+
+    align-items: center;
+
+}
+
+
+
+.section7-div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background-color: #e4d1c0;
+
+    gap: 50px;
+
+    padding: 4% 4%;
+
+}
+
+.beach{
+    width: 100%;
+}
+
+.section7-form {
+
+    padding: 4%;
+
+    align-items: center;
+
+}
+
+
+
+form {
+
+    background-color: #f2e9e1;
+
+    padding: 3%;
+
+    width: 40rem;
+
+    border-radius: 10px;
+
+}
+
+
+
+.first-and-last {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+
+.form-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+label {
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+
+}
+
+
+
+input {
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    border: 2px solid #aaa;
+
+}
+
+
+
+.bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+
+.bottom a {
+
+    text-decoration: none;
+
+    color: #8b5a2b;
+
+    font-size: 14px;
+
+}
+
+
+
+
+
+/*  SECTION EIGHT/FOOTER */
+
+
+.section8-container {
+
+    min-height: 60vh;
+
+    width: 100%;
+
+    background-color: #d5b79d;
+
+    font-family: 'Playfair Display', serif;
+
+}
+
+
+
+.section8-div {
+
+    background-position: center;
+
+    background-size: cover;
+
+    object-fit: cover;
+
+    background-repeat: no-repeat;
+
+    background-image: linear-gradient(rgba(213, 183, 157, 0.842)), url(media/africa\ map.png);
+
+    height: 60vh;
+
+    padding: 3%;
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+
+.africa-logo {
+
+    width: 5rem;
+
+}
+
+
+
+.socials span {
+
+    font-size: 1.5rem;
+
+}
+
+
+
+#button-addon2 {
+
+    background-color: #c69f7a;
+
+    border-radius: 30px;
+
+    border: 2px solid #c69f7a !important;
+
+}
+
+
+
+.section8-div ul {
+
+    display: flex;
+
+    flex-direction: column;
+
+    list-style: none;
+
+}
+
+
+
+.section8-div ul li:hover {
+
+    text-decoration: underline 2px solid #c69f7a;
+
+}
+
+/* Small Mobile Devices (320px and up) */
+@media (max-width: 480px) {
+    
+    /* 1. Global Reset for tight spaces */
+    .section-one, .section2-container, .section7-container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    /* 2. Navbar - Make it more compact */
+    .custom-navbar {
+        width: 95%;
+        margin: 10px auto;
+        padding: 5px 15px;
+    }
+
+    .nav-link {
+        margin: 5px 0;
+        font-size: 0.85rem;
+    }
+
+    /* 3. Hero Section - Reduce huge top margins */
+    .giraffe-text {
+        margin: 60px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .giraffe-text h1 {
+        font-size: 1.8rem; /* Shrink font so it doesn't break weirdly */
+        line-height: 1.2;
+    }
+
+    .giraffe-text p {
+        width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    /* 4. Section 2 - Stack image and text */
+    .section2-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section2 {
+        max-width: 100%;
+    }
+
+    .section2 h2 {
+        font-size: 1.6rem;
+    }
+
+    /* 5. Section 3 - Cards stack 100% wide */
+    .cardd {
+        width: 100%; /* Take full width minus padding */
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    /* 6. Section 4 - Filter Buttons */
+    .container4 ul {
+        padding: 0;
+    }
+
+    .container4 ul li {
+        width: 40%; /* Two buttons per row roughly */
+        margin: 5px;
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    /* 7. Gallery (Section 5) - The most critical part */
+    .gallery-wrapper {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .gallery-div1, .gallery-div2, .gallery-div3 {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .grid1, .gallery3-div {
+        grid-template-columns: 1fr; /* Force single column */
+        height: auto;
+    }
+
+    .zebra p {
+        font-size: 1.5rem; /* Large text usually breaks the container on 320px */
+    }
+
+    /* 8. Section 6 - Testimonials */
+    .section6-div-text {
+        max-width: 100%;
+        font-size: 1rem;
+        padding-top: 20%;
+    }
+
+    .section6-div-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .section6-div-text img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* 9. Section 7 - The Form */
+    form {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .first-and-last {
+        flex-direction: column;
+    }
+
+    /* 10. Footer (Section 8) */
+    .section8-div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: none; /* Remove that red border from your original CSS */
+        height: auto;
+    }
+
+    .section8-div ul {
+        padding: 0;
+        margin-top: 20px;
+    }
+} 
+
+
+
+
+
+
+
+
+
