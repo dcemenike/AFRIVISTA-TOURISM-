@@ -409,8 +409,6 @@
 
     justify-content: space-between;
 
-    /* flex-wrap: wrap; */
-
     margin: 20px;
 
     gap: 20px;
@@ -456,11 +454,6 @@
 
 
 /*                  SECTION FIVE */
-
-
-
-
-
 .section5-container {
 
     background-color: #e4d1c0;
@@ -1133,7 +1126,6 @@ input {
 /* Small Mobile Devices (320px and up) */
 @media (max-width: 480px) {
 
-    /* 1. Global Reset for tight spaces */
     .section-one,
     .section2-container,
     .section7-container {
@@ -1162,7 +1154,6 @@ input {
 
     .giraffe-text h1 {
         font-size: 1.8rem;
-        /* Shrink font so it doesn't break weirdly */
         line-height: 1.2;
     }
 
@@ -1189,7 +1180,6 @@ input {
     /* 5. Section 3 - Cards stack 100% wide */
     .cardd {
         width: 100%;
-        /* Take full width minus padding */
         height: auto;
         margin-bottom: 15px;
     }
@@ -1201,13 +1191,12 @@ input {
 
     .container4 ul li {
         width: 40%;
-        /* Two buttons per row roughly */
         margin: 5px;
         font-size: 11px;
         padding: 8px 10px;
     }
 
-    /* 7. Gallery (Section 5) - The most critical part */
+    /* 7. Gallery (Section 5)  */
     .gallery-wrapper {
         padding: 10px;
         gap: 10px;
@@ -1224,13 +1213,11 @@ input {
     .grid1,
     .gallery3-div {
         grid-template-columns: 1fr;
-        /* Force single column */
         height: auto;
     }
 
     .zebra p {
         font-size: 1.5rem;
-        /* Large text usually breaks the container on 320px */
     }
 
     /* 8. Section 6 - Testimonials */
@@ -1265,7 +1252,6 @@ input {
         align-items: center;
         text-align: center;
         border: none;
-        /* Remove that red border from your original CSS */
         height: auto;
     }
 
@@ -1286,7 +1272,7 @@ input {
 
 
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
 
     * {
         margin: 0;
@@ -1554,6 +1540,7 @@ input {
 
     .gallery-wrapper {
         flex-direction: column;
+        display: flex;
         padding: 0;
         gap: 15px;
         min-height: auto;
@@ -1868,7 +1855,7 @@ input {
         cursor: pointer;
     }
 
-    /* Hide Navbar Toggler Label Text */
+    
     .navbar-toggler {
         border-color: white;
     }
@@ -1877,3 +1864,4 @@ input {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 }
+

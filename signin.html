@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back | AfriVista</title>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="signin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="signin-viewport">
+        <!-- Abstract Ambient Glow Elements -->
+        <!-- <div class="glow-blur glow-1"></div>
+        <div class="glow-blur glow-2"></div> -->
+
+        <div class="secure-card">
+            <!-- Header Identity -->
+            <header class="auth-header">
+                <div class="passport-badge">
+                    <i class="fa-solid fa-lock-open"></i> Secure Access
+                </div>
+                <h1>Welcome Back</h1>
+                <p>Sign in to resume your itineraries, view saved routes, and access custom safari packages.</p>
+            </header>
+
+            <!-- Traditional Core Inputs -->
+            <form class="signin-form" id="signin-form">
+                <div class="input-block">
+                    <label for="email">Email Address</label>
+                    <div class="field-container">
+                        <input type="email" id="email" placeholder="name@domain.com" required>
+                        <span class="focus-line"></span>
+                    </div>
+                </div>
+
+                <div class="input-block">
+                    <div class="label-split">
+                        <label for="password">Password</label>
+                        <a href="#" class="recovery-trigger">Forgot Password?</a>
+                    </div>
+                    <div class="field-container">
+                        <div id="password-wrapper">
+                            <input class="password-input" type="password" id="password" placeholder="••••••••••••" required>
+                            <i id="toggleIcon" class="fa-solid fa-eye"></i>
+
+                        </div>
+                        <span class="focus-line"></span>
+                    </div>
+                    <p id="errorBox"></p>
+                </div>
+
+                <!-- Main Authentication Action -->
+                <button type="submit" class="action-submit" id="submitBtn">
+                    <span>Access Account</span>
+                    <i class="fa-solid fa-key"></i>
+                </button>
+            </form>
+
+            <!-- Federated Isolation Layer (Google at bottom) -->
+            <div class="federated-separator">
+                <span class="bar"></span>
+                <span class="text">or resume with</span>
+                <span class="bar"></span>
+            </div>
+
+            <footer class="federated-zone">
+                <button class="google-auth-trigger" id="googleSignInBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22px" height="22px">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.5 24c0-1.55-.15-3.24-.47-4.77H24v9.03h12.75c-.53 2.87-2.14 5.31-4.59 6.96l7.14 5.53C43.46 36.55 46.5 30.95 46.5 24z"/>
+                        <path fill="#FBBC05" d="M10.54 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.98-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.14-5.53c-2.1 1.42-4.78 2.31-8.75 2.31-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                    <span>Sign in with Google</span>
+                </button>
+
+                <p class="onboarding-redirect">
+                    New to AfriVista? <a href="signup.html">Create an account</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+</body><script type="module" src="signin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

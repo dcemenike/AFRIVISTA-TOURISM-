@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AfriVista</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- 1. SIDEBAR -->
+        <aside class="sidebar">
+            <h2>AfriVista</h2>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">My Trips</a>
+                <a href="#">Logout</a>
+            </nav>
+        </aside>
+
+        
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+        <header>
+            <h1>Welcome Back, <span id="show"></span></h1>
+        </header>
+
+        <!-- THE 3-CARD GRID -->
+        <div class="grid-container">
+            <!-- Card 1: Saved Trip -->
+            <div class="card safari-card">
+                <h3>Your Saved Safari</h3>
+                <p>Serengeti Adventure Package</p>
+                <p class="price">Cost: <strong>$1,200</strong></p>
+            </div>
+
+            <!-- Card 2: Your Weather App Widget -->
+            <div class="card weather-card">
+                <h3>Destination Weather</h3>
+                <!-- Hook your weather API elements here -->
+                <p class="temp" id="dashTemp">--°C</p>
+                <p id="dashCondition">Loading weather...</p>
+            </div>
+
+            <!-- Card 3: Payment Gateway Practice -->
+            <div class="card payment-card">
+                <h3>Secure Checkout</h3>
+                <p>Ready to lock in your trip?</p>
+                <button id="checkoutBtn" class="pay-btn">Pay Now ($1,200)</button>
+                <p id="paymentStatus"></p>
+            </div>
+        </div>
+    </main>
+</div>
+        </main>
+    </div>
+
+</body>
+<script type="module" src="dashboard.js" ></script>
+</html>
