@@ -10,29 +10,177 @@ const firebaseConfig = {
     appId: "1:1042806811109:web:4e5ad306fb3dc429c3270c"
 };
 
+
+
+//TOUR PACKAGES
+const tourPackages = [
+    {
+        title: 'Pyramids of Giza and Luxor Temples',
+        country: 'Egypt',
+        duration: '5 days',
+        accommodation: '4-Star Cairo Hotel',
+        price: 1200,
+        image: 'https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=500 '
+    },
+    {
+        title: "Algiers Historic Casbah Tour",
+        country: "Algeria",
+        price: 1450,
+        duration: "5 Days",
+        accommodation: "Boutique Riad",
+        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/f6/81/6b/caption.jpg?w=1200&h=-1&s=1"
+    },
+    {
+        title: "Table Mountain & Cape Town Getaway",
+        country: 'South Africa',
+        duration: '4days',
+        accommodation: "Oceanfront Boutique Inn",
+        price: 1100,
+        image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQ5UL4g60ekylRe0zASNDBc0VP04IrL_4FNRQDsclqIFpbmDw-OI4jroOA16B1c3_ExgJXHWKCKm_RDMV8"
+    },
+    {
+        title: "Serengeti National Park Safari",
+        country: 'Tanzania',
+        duration: '5 days',
+        accommodation: "Luxury Eco-Lodge",
+        price: 1200,
+        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500"
+    },
+];
+
+const tourContainer = document.getElementById('tours-container');
+
+if (tourContainer) {
+    tourContainer.innerHTML = '';
+} else {
+    console.log('error');
+}
+
+for (let i = 0; i < tourPackages.length; i++) {
+    const element = tourPackages[i];
+    // console.log(element.country);
+    const htmlTemplate = `
+    <div class="card border-0 shadow-sm bg-white overflow-hidden rounded-3">
+        <div class="row g-0">
+            
+        
+            <div class="col-12 col-sm-4">
+                <img src="${element.image}" class="img-fluid h-100 w-100" style="object-fit: cover; min-height: 150px; max-height: 200px;" alt="${element.title}">
+            </div>
+            
+            
+            <div class="col-12 col-sm-8">
+                <div class="card-body p-4 d-flex flex-column h-100 justify-content-between">
+                    
+                <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem; line-height: 1.3;">${element.title}</h5>
+                <span class="badge bg-light text-secondary border text-uppercase px-2 py-1 ms-2" style="font-size: 0.65rem;">
+                ${element.country}
+                </span>
+                        </div>
+                        
+                        
+                        <div class="d-flex gap-3 text-muted small mb-3">
+                            <span><i class="bi bi-clock me-1"></i>${element.duration}</span>
+                            <span>•</span>
+                            <span><i class="bi bi-house-door me-1"></i>${element.accommodation}</span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                        <div>
+                            <small class="text-muted d-block" style="font-size: 0.7rem;">Package Price</small>
+                            <span class="fw-bold text-success fs-5">$${element.price}</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm rounded-pill px-4 fw-semibold shadow-sm exploreButton" >
+                        Explore
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>`
+    tourContainer.innerHTML += htmlTemplate;
+
+}
+
+
+const buttons = document.querySelectorAll('.exploreButton');
+
+for (let i = 0; i < buttons.length; i++) {
+    const btnElement = buttons[i];
+    btnElement.addEventListener('click', ()=>{
+        console.log(tourPackages[i].country);
+        getWeatherInfo(tourPackages[i].country)
+    })
+    
+}
+
+
+
+const API_KEY = '379566d16fd74a96857130225261207'
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const user = auth.currentUser;
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-
+        
         if (user !== null) {
             user.providerData.forEach((profile) => {
-                console.log("Sign-in provider: " + profile.providerId);
-                console.log("  Provider-specific UID: " + profile.uid);
+                // console.log("Sign-in provider: " + profile.providerId);
+                // console.log("  Provider-specific UID: " + profile.uid);
                 console.log("  Name: " + profile.displayName);
                 console.log("  Email: " + profile.email);
-                console.log("  Photo URL: " + profile.photoURL);
+                // console.log("  Photo URL: " + profile.photoURL);
                 const email = user.email
-                console.log(user, email);
-                document.getElementById('show').innerHTML = `${user.displayName  }`
-                
+                // console.log(user, email);
+                document.getElementById('show').innerHTML = `${user.displayName}`
+                // getWeatherInfo()
             });
         }
-
+        
     } else {
         // User is signed out
         // ...
     }
 });
+
+
+async function getWeatherInfo(country) {
+    const temp = document.getElementById('dashTemp');
+    const weatherCondition = document.getElementById('dashCondition');
+    const displayCity = document.getElementById('cityName');
+    const icon = document.getElementById('weatherIcon');
+    
+    const CITY = country;
+    const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${CITY}`;
+
+
+
+    const response = await fetch(URL);
+
+    if (!response.ok) {
+        console.log(response);
+    }
+    else {
+        const weatherData = await response.json();
+        console.log(weatherData);
+        console.log(weatherData.location.name);
+        console.log(weatherData.current.temp_c);
+        console.log(weatherData.current.condition.text);
+
+        temp.innerHTML = `${Math.round(weatherData.current.temp_c)}°C`
+        weatherCondition.innerHTML = `${weatherData.current.condition.text}`
+        displayCity.innerHTML = `${weatherData.location.name}`
+        icon.src = `https:${weatherData.current.condition.icon}`
+
+    }
+};
+
+
+
+
