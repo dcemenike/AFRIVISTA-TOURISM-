@@ -1,6 +1,35 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
+
+
+//CURRENCY CONVERTER FROM USD TO NGN
+const getNGNrate = async () => {
+    const API_URL = 'https://open.er-api.com/v6/latest/USD';
+    try {
+        const currencyResponse = await fetch(API_URL);
+        const currencyData = await currencyResponse.json();
+        // console.log(currencyData);
+        const ngnRate = Math.round(currencyData.rates.NGN);
+        NGNrate = ngnRate;
+
+    } catch (error) {
+        console.error("Failed to fetch current rate. Falling back to default.", error);
+    }
+}
+
+//GLOBAL VARIABLES
+var selectedTourPackage = null;
+var userEmail;
+var NGNrate;
+var nairaAmount = 0;
+
+// TRIGGERING THE NGNrate FUNCTION ON LOAD OF THE PAGE
+getNGNrate();
+
+
+
+//FIREBASE CONFIGURATION
 const firebaseConfig = {
     apiKey: "AIzaSyD2yk67GsHakRcoPY9JWI6XlgFntCsQomQ",
     authDomain: "afrivista-tourism.firebaseapp.com",
@@ -10,6 +39,35 @@ const firebaseConfig = {
     appId: "1:1042806811109:web:4e5ad306fb3dc429c3270c"
 };
 
+//GETTING INFO OF SIGNED-IN USER FROM FIREBASE
+const API_KEY = '379566d16fd74a96857130225261207'
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const user = auth.currentUser;
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+
+        if (user !== null) {
+            user.providerData.forEach((profile) => {
+                // console.log("Sign-in provider: " + profile.providerId);
+                // console.log("  Provider-specific UID: " + profile.uid);
+                console.log("  Name: " + profile.displayName);
+                console.log("  Email: " + profile.email);
+                // console.log("  Photo URL: " + profile.photoURL);
+                const email = user.email
+                userEmail = email
+                // console.log( userEmail);
+                document.getElementById('show').innerHTML = `${user.displayName}`
+            });
+        }
+
+    } else {
+        window.location.href = 'signin.html'
+        // User is signed out
+        // ...
+    }
+});
 
 
 //TOUR PACKAGES
@@ -48,6 +106,7 @@ const tourPackages = [
     },
 ];
 
+// HTML TEMPLATE FOR TOUR PACKAGES
 const tourContainer = document.getElementById('tours-container');
 
 if (tourContainer) {
@@ -60,7 +119,7 @@ for (let i = 0; i < tourPackages.length; i++) {
     const element = tourPackages[i];
     // console.log(element.country);
     const htmlTemplate = `
-    <div class="card border-0 shadow-sm bg-white overflow-hidden rounded-3">
+    <div class="card border-1 shadow-sm bg-dark-subtle overflow-hidden rounded-end-pill">
         <div class="row g-0">
             
         
@@ -104,62 +163,32 @@ for (let i = 0; i < tourPackages.length; i++) {
         </div>
     </div>`
     tourContainer.innerHTML += htmlTemplate;
-
 }
 
-
+//ACTIVATION OF EACH "EXPLORE" BUTTON
 const buttons = document.querySelectorAll('.exploreButton');
 
 for (let i = 0; i < buttons.length; i++) {
     const btnElement = buttons[i];
-    btnElement.addEventListener('click', ()=>{
-        console.log(tourPackages[i].country);
-        getWeatherInfo(tourPackages[i].country)
+    btnElement.addEventListener('click', () => {
+        selectedTourPackage = tourPackages[i];
+        console.log(selectedTourPackage.country);
+        getWeatherInfo(selectedTourPackage.country)
+        amountInNaira(selectedTourPackage.price)
     })
-    
+
 }
 
 
-
-const API_KEY = '379566d16fd74a96857130225261207'
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const user = auth.currentUser;
-
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        
-        if (user !== null) {
-            user.providerData.forEach((profile) => {
-                // console.log("Sign-in provider: " + profile.providerId);
-                // console.log("  Provider-specific UID: " + profile.uid);
-                console.log("  Name: " + profile.displayName);
-                console.log("  Email: " + profile.email);
-                // console.log("  Photo URL: " + profile.photoURL);
-                const email = user.email
-                // console.log(user, email);
-                document.getElementById('show').innerHTML = `${user.displayName}`
-                // getWeatherInfo()
-            });
-        }
-        
-    } else {
-        // User is signed out
-        // ...
-    }
-});
-
-
+// WEATHER API FOR EACH TOUR LOCATION
 async function getWeatherInfo(country) {
     const temp = document.getElementById('dashTemp');
     const weatherCondition = document.getElementById('dashCondition');
     const displayCity = document.getElementById('cityName');
     const icon = document.getElementById('weatherIcon');
-    
+
     const CITY = country;
     const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${CITY}`;
-
-
 
     const response = await fetch(URL);
 
@@ -168,19 +197,94 @@ async function getWeatherInfo(country) {
     }
     else {
         const weatherData = await response.json();
-        console.log(weatherData);
-        console.log(weatherData.location.name);
-        console.log(weatherData.current.temp_c);
-        console.log(weatherData.current.condition.text);
+        // console.log(weatherData);
+        // console.log(weatherData.location.name);
+        // console.log(weatherData.current.temp_c);
+        // console.log(weatherData.current.condition.text);
 
         temp.innerHTML = `${Math.round(weatherData.current.temp_c)}°C`
         weatherCondition.innerHTML = `${weatherData.current.condition.text}`
         displayCity.innerHTML = `${weatherData.location.name}`
         icon.src = `https:${weatherData.current.condition.icon}`
-
+        btnCheckout.disabled = false;
     }
 };
 
+
+// CURRENCY CONVERSION TO NAIRA
+function amountInNaira(usdPrice) {
+    var convertedNGN = document.getElementById('convertedAmount');
+    const amountInNaira = NGNrate * usdPrice;
+    console.log(amountInNaira);
+
+    nairaAmount = amountInNaira;
+    convertedNGN.innerHTML = `₦${nairaAmount.toLocaleString()}`;
+}
+
+
+// CHECKOUT - PAYSTACK API
+const btnCheckout = document.getElementById('checkoutBtn');
+btnCheckout.disabled = true;
+
+btnCheckout.addEventListener('click', () => {
+    const amountInKobo = nairaAmount * 100;
+    // console.log(amountInKobo);
+    const paystack = new PaystackPop();
+
+    paystack.newTransaction({
+        key: 'pk_test_ddbd6e87c046502c1e7e97b258f8032a54cf51fe',
+        email: userEmail,
+        amount: amountInKobo,
+        onSuccess: (transaction) => {
+            console.log(transaction.status,transaction);
+            generateReceipt(transaction.reference);
+        },
+        onLoad: (response) => {
+            console.log("onLoad: ", response);
+        },
+        onCancel: () => {
+            console.log("onCancel");
+        },
+        onError: (error) => {
+            console.log("Error: ", error.message);
+        }
+    })
+})
+
+
+//PAYMENT RECEIPT
+function generateReceipt(transactionRef){
+    document.getElementById('receiptTourTitle').innerText = selectedTourPackage.title;
+    document.getElementById('receiptCountry').innerText = selectedTourPackage.country;
+    document.getElementById('receiptDuration').innerText = selectedTourPackage.duration;
+    document.getElementById('receiptEmail').innerText = userEmail;
+    document.getElementById('receiptUSDPrice').innerText = selectedTourPackage.price;
+    document.getElementById('c').innerText = nairaAmount;
+    document.getElementById('receiptRef').innerText = transactionRef;
+
+    //BOOTSTRAP MODAL POPUP
+    const targetModalNode = document.getElementById('receiptModal');
+    const bootstrapReceiptInstance = new bootstrap.Modal(targetModalNode);
+    bootstrapReceiptInstance.show();
+}
+
+
+//SIGNOUT/LOGOUT
+document.getElementById('logoutBtn').addEventListener('click', ()=>{
+    
+    signOut(auth).then(() => {
+        console.log('Sign-out successful');
+        window.location.href = 'signin.html'
+
+    
+    }).catch((error) => {
+      // An error happened.
+        errorMessage = error.message;
+        errorCode = error.code;
+        console.log(errorMessage);
+        console.log(errorCode);
+    });
+});
 
 
 
